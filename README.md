@@ -1,10 +1,10 @@
 # これは何か
 
+[![CircleCI](https://circleci.com/gh/dmiyakawa/demo-pythontest/tree/master.svg?style=shield&circle-token=876f0eb8013125e01e7e13cae7a12dca506b19a9)](https://circleci.com/gh/dmiyakawa/demo-pythontest/tree/master)
+
 Python 練習用クイズ集です。
 
 プロジェクトページ: https://github.com/dmiyakawa/PythonQuiz
-
-[![CircleCI](https://circleci.com/gh/dmiyakawa/demo-pythontest/tree/master.svg?style=svg&circle-token=876f0eb8013125e01e7e13cae7a12dca506b19a9)](https://circleci.com/gh/dmiyakawa/demo-pythontest/tree/master)
 
 # 動作環境について
 
