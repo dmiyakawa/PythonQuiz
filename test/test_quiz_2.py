@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 
 '''\
-クイズ2: my_upper(s)を完成させてください
+my_upper()
 
+関数my_upper(s)を完成させてください
 my_upper(s) はつぎのような動作をする関数とします。
 
  * sが文字列型ではない時、Noneを返す。

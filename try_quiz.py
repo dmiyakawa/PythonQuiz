@@ -33,6 +33,7 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 import glob
 import importlib
 import os.path
+import re
 import sys
 
 import unittest
@@ -100,12 +101,15 @@ def main():
         # クイズの説明は全て test_quiz_N.py のモジュールドキュメンテーション文にある。
         # (module.__doc__で参照できる)
         if args.run_all:
-            # 全ファイルを取ってきてモジュールのフォーマットに直してインポートする
-            mod_names = sorted(list(map(lambda x: x[:-3].replace('/', '.'),
-                                        glob.glob('test/test*.py'))))
+            # 全ファイルを取ってきてモジュールのフォーマットに直してインポートし、
+            # 各ドキュメンテーションコメントを取得する
+            # ソート順はtest/test_NNN.pyの整数NNNの順
+            mod_names = list(map(lambda x: x[:-3].replace('/', '.'),
+                                 glob.glob('test/test*.py')))
             logger.debug("mod_names: {}".format(mod_names))
-            for mod_name in mod_names:
-                quiz_index = int(mod_name[-1])
+            for (quiz_index, mod_name) in \
+                sorted(map(lambda name: (int(re.match(r'.+?(\d+)$', name).group(1)),
+                                         name), mod_names)):
                 mod = importlib.import_module(mod_name)
                 print_quiz_description(quiz_index, mod.__doc__)
         else:
