@@ -104,11 +104,13 @@ def main():
             # 全ファイルを取ってきてモジュールのフォーマットに直してインポートし、
             # 各ドキュメンテーションコメントを取得する
             # ソート順はtest/test_NNN.pyの整数NNNの順
-            mod_names = list(map(lambda x: x[:-3].replace('/', '.'),
-                                 glob.glob('test/test*.py')))
+            def dir_to_dot(x):
+                return x[:-3].replace('/', '.').replace('\\', '.')
+            mod_names = list(map(dir_to_dot, glob.glob('test/test*.py')))
             logger.debug("mod_names: {}".format(mod_names))
             for (quiz_index, mod_name) in \
-                sorted(map(lambda name: (int(re.match(r'.+?(\d+)$', name).group(1)),
+                sorted(map(lambda name: (int(re.match(r'.+?(\d+)$', name)
+                                             .group(1)),
                                          name), mod_names)):
                 mod = importlib.import_module(mod_name)
                 print_quiz_description(quiz_index, mod.__doc__)
