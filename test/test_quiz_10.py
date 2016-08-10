@@ -54,7 +54,7 @@ class TestQuiz10(unittest.TestCase):
 
     def test_decode_8(self):
         self.assertEqual(decode('a2215z321y92'),
-                         (('a'*2215) + ('z'*321) + 'y'*92))
+                         (('a' * 2215) + ('z' * 321) + 'y' * 92))
 
     def test_decode_9(self):
         self.assertEqual(decode('a0000b0c00'), '')
