@@ -4,7 +4,7 @@
 '''\
 クイズ5: ソート(2)
 
-以下の条件を満たす関数my_sort(data)を完成させてください
+以下の条件を満たす関数my_sort2(data)を完成させてください
 
 * 仮引数dataには全て要素が非負整数のリストが与えられます
 * このリストの要素を次の条件で並び替えた新しいリストを返してください。
@@ -22,16 +22,16 @@
 '''
 
 import unittest
-from quiz_5 import my_sort
+from quiz_5 import my_sort2
 
 
 class TestQuiz5(unittest.TestCase):
-    def test_my_sort_1(self):
-        self.assertEqual(my_sort([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),
+    def test_my_sort2_1(self):
+        self.assertEqual(my_sort2([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),
                          [8, 5, 2, 7, 4, 1, 9, 6, 3, 0])
-        self.assertEqual(my_sort([2, 1, 4, 3]), [2, 4, 1, 3])
+        self.assertEqual(my_sort2([2, 1, 4, 3]), [2, 4, 1, 3])
 
-    def test_my_sort_2(self):
+    def test_my_sort2_2(self):
         lst = [5, 3, 4, 2, 8, 5, 11]
-        self.assertEqual(my_sort(lst), [11, 8, 5, 5, 2, 4, 3])
+        self.assertEqual(my_sort2(lst), [11, 8, 5, 5, 2, 4, 3])
         self.assertEqual(lst, [5, 3, 4, 2, 8, 5, 11])
